@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Blackfyre Downloader</title>
+
+<style>
+body{
+background:#0a0a0a;
+color:white;
+font-family:Arial;
+text-align:center;
+padding-top:100px;
+}
+
+.logo{
+font-size:60px;
+color:#ff3b3b;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+0%{text-shadow:0 0 10px red;}
+100%{text-shadow:0 0 30px orange;}
+}
+
+input{
+width:60%;
+max-width:600px;
+padding:15px;
+border-radius:8px;
+border:none;
+font-size:16px;
+}
+
+button{
+margin-top:20px;
+padding:15px 30px;
+font-size:16px;
+border:none;
+border-radius:8px;
+background:#ff2a2a;
+color:white;
+cursor:pointer;
+}
+
+button:hover{
+background:#ff0000;
+}
+
+footer{
+position:fixed;
+bottom:10px;
+width:100%;
+color:#777;
+font-size:14px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="logo">BLACKFYRE</div>
+
+<p>Fast Video Downloader</p>
+
+<input id="url" placeholder="Paste Instagram, TikTok, YouTube or Facebook link">
+
+<br>
+
+<button onclick="downloadVideo()">Download</button>
+
+<footer>
+Blackfyre Downloader — by Jose Mendoza
+</footer>
+
+<script>
+
+function downloadVideo(){
+
+let url=document.getElementById("url").value;
+
+if(url==""){
+alert("Paste a video link first");
+return;
+}
+
+window.open("https://blackfyre-api.onrender.com/download?url="+encodeURIComponent(url));
+
+}
+
+</script>
+
+</body>
+</html>
