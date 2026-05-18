@@ -1,92 +1,317 @@
+# MEDIAFORGE AI — Creator Command Center
+
+Replace your current `index.html` with the following code.
+
+```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Blackfyre Downloader</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MEDIAFORGE AI</title>
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
 
 <style>
+
 body{
-background:#0a0a0a;
-color:white;
-font-family:Arial;
-text-align:center;
-padding-top:100px;
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+    background:#050505;
 }
 
-.logo{
-font-size:60px;
-color:#ff3b3b;
-animation:glow 2s infinite alternate;
+.logo-font{
+    font-family:'Orbitron',sans-serif;
 }
 
-@keyframes glow{
-0%{text-shadow:0 0 10px red;}
-100%{text-shadow:0 0 30px orange;}
+.glow-red{
+    box-shadow:0 0 25px rgba(239,68,68,0.35);
 }
 
-input{
-width:60%;
-max-width:600px;
-padding:15px;
-border-radius:8px;
-border:none;
-font-size:16px;
+.card-glow:hover{
+    box-shadow:0 0 30px rgba(239,68,68,0.20);
+    transform:translateY(-5px);
 }
 
-button{
-margin-top:20px;
-padding:15px 30px;
-font-size:16px;
-border:none;
-border-radius:8px;
-background:#ff2a2a;
-color:white;
-cursor:pointer;
+.bg-grid{
+    background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size:40px 40px;
 }
 
-button:hover{
-background:#ff0000;
+.pulse-glow{
+    animation:pulseGlow 3s infinite;
 }
 
-footer{
-position:fixed;
-bottom:10px;
-width:100%;
-color:#777;
-font-size:14px;
+@keyframes pulseGlow{
+    0%{
+        box-shadow:0 0 10px rgba(239,68,68,0.2);
+    }
+    50%{
+        box-shadow:0 0 30px rgba(239,68,68,0.5);
+    }
+    100%{
+        box-shadow:0 0 10px rgba(239,68,68,0.2);
+    }
 }
+
+.floating{
+    animation:float 5s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(0px)}
+    50%{transform:translateY(-10px)}
+    100%{transform:translateY(0px)}
+}
+
 </style>
-
 </head>
 
-<body>
+<body class="text-white bg-grid">
 
-<div class="logo">BLACKFYRE</div>
+<!-- Background Effects -->
+<div class="fixed inset-0 -z-10 overflow-hidden">
+    <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-red-500/20 blur-3xl rounded-full"></div>
+    <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-orange-500/10 blur-3xl rounded-full"></div>
+</div>
 
-<p>Fast Video Downloader</p>
+<!-- Navbar -->
+<nav class="w-full border-b border-white/10 backdrop-blur-xl sticky top-0 z-50 bg-black/30">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
-<input id="url" placeholder="Paste Instagram, TikTok, YouTube or Facebook link">
+        <div>
+            <h1 class="logo-font text-2xl font-bold tracking-widest text-red-500">
+                MEDIAFORGE AI
+            </h1>
+            <p class="text-xs text-gray-400 tracking-[3px] mt-1">
+                BLACKFYR3 SYSTEMS
+            </p>
+        </div>
 
-<br>
+        <div class="hidden md:flex items-center gap-8 text-sm text-gray-300">
+            <a href="#utilities" class="hover:text-red-400 transition">Utilities</a>
+            <a href="#features" class="hover:text-red-400 transition">Features</a>
+            <a href="#status" class="hover:text-red-400 transition">Status</a>
+            <a href="#contact" class="hover:text-red-400 transition">Contact</a>
+        </div>
 
-<button onclick="downloadVideo()">Download</button>
+        <div class="hidden md:flex items-center gap-2 bg-green-500/10 border border-green-500/20 px-4 py-2 rounded-full">
+            <div class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+            <span class="text-green-300 text-sm">Systems Online</span>
+        </div>
 
-<footer>
-Blackfyre Downloader — by Jose Mendoza
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="relative min-h-screen flex items-center justify-center px-6 py-24">
+
+    <div class="max-w-5xl mx-auto text-center">
+
+        <div class="inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-full px-5 py-2 mb-8 backdrop-blur-lg floating">
+            <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+            <span class="text-sm text-gray-300 tracking-wide">
+                Creator Command Center
+            </span>
+        </div>
+
+        <h1 class="logo-font text-5xl md:text-7xl font-extrabold leading-tight tracking-wider mb-6">
+            <span class="text-white">MEDIA</span>
+            <span class="text-red-500">FORGE</span>
+            <span class="text-orange-400"> AI</span>
+        </h1>
+
+        <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-10">
+            Modern social media utilities for creators, editors, streamers, and digital workflows.
+        </p>
+
+        <!-- URL Input -->
+        <div class="max-w-3xl mx-auto bg-white/5 border border-white/10 rounded-3xl p-4 backdrop-blur-2xl glow-red pulse-glow">
+
+            <div class="flex flex-col md:flex-row gap-4">
+
+                <input
+                id="url"
+                type="text"
+                placeholder="Paste TikTok, Instagram, Facebook, or X link"
+                class="flex-1 bg-black/40 border border-white/10 rounded-2xl px-6 py-5 text-white outline-none focus:border-red-500 text-lg"
+                >
+
+                <button
+                onclick="downloadVideo()"
+                class="bg-gradient-to-r from-red-500 to-orange-500 hover:scale-105 transition duration-300 px-10 py-5 rounded-2xl font-semibold text-lg shadow-xl shadow-red-500/30">
+                Download
+                </button>
+
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4 mt-6 text-sm text-gray-400">
+                <div class="bg-white/5 px-4 py-2 rounded-full border border-white/10">
+                    ⚡ Fast Processing
+                </div>
+                <div class="bg-white/5 px-4 py-2 rounded-full border border-white/10">
+                    🔒 Secure Transfers
+                </div>
+                <div class="bg-white/5 px-4 py-2 rounded-full border border-white/10">
+                    🌐 Multi-Platform Support
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Features -->
+<section id="features" class="py-24 px-6">
+
+    <div class="max-w-7xl mx-auto">
+
+        <div class="text-center mb-16">
+            <h2 class="logo-font text-4xl md:text-5xl font-bold mb-4">
+                Creator Utilities
+            </h2>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                Powerful tools designed for modern creators and media workflows.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+            <!-- Card -->
+            <div class="card-glow transition duration-300 bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl">
+                <div class="text-5xl mb-6">📥</div>
+                <h3 class="text-2xl font-bold mb-4">Media Downloader</h3>
+                <p class="text-gray-400 leading-relaxed mb-6">
+                    Download and process publicly accessible media from supported platforms.
+                </p>
+                <button class="w-full bg-red-500/10 border border-red-500/20 hover:bg-red-500/20 transition py-3 rounded-xl">
+                    Launch
+                </button>
+            </div>
+
+            <!-- Card -->
+            <div class="card-glow transition duration-300 bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl">
+                <div class="text-5xl mb-6">🎵</div>
+                <h3 class="text-2xl font-bold mb-4">Audio Extractor</h3>
+                <p class="text-gray-400 leading-relaxed mb-6">
+                    Convert video media into high-quality MP3, WAV, and AAC audio files.
+                </p>
+                <button class="w-full bg-red-500/10 border border-red-500/20 hover:bg-red-500/20 transition py-3 rounded-xl">
+                    Coming Soon
+                </button>
+            </div>
+
+            <!-- Card -->
+            <div class="card-glow transition duration-300 bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl">
+                <div class="text-5xl mb-6">🎬</div>
+                <h3 class="text-2xl font-bold mb-4">File Converter</h3>
+                <p class="text-gray-400 leading-relaxed mb-6">
+                    Convert modern media formats quickly with optimized processing.
+                </p>
+                <button class="w-full bg-red-500/10 border border-red-500/20 hover:bg-red-500/20 transition py-3 rounded-xl">
+                    Coming Soon
+                </button>
+            </div>
+
+            <!-- Card -->
+            <div class="card-glow transition duration-300 bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl">
+                <div class="text-5xl mb-6">🤖</div>
+                <h3 class="text-2xl font-bold mb-4">AI Captions</h3>
+                <p class="text-gray-400 leading-relaxed mb-6">
+                    Generate captions and subtitles for videos using AI-powered tools.
+                </p>
+                <button class="w-full bg-red-500/10 border border-red-500/20 hover:bg-red-500/20 transition py-3 rounded-xl">
+                    Coming Soon
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Status Section -->
+<section id="status" class="py-24 px-6">
+
+    <div class="max-w-6xl mx-auto bg-white/5 border border-white/10 rounded-3xl p-10 backdrop-blur-xl">
+
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+
+            <div>
+                <div class="text-4xl mb-4">🟢</div>
+                <h3 class="text-2xl font-bold mb-2">Online</h3>
+                <p class="text-gray-400">Systems operating normally</p>
+            </div>
+
+            <div>
+                <div class="text-4xl mb-4">⚡</div>
+                <h3 class="text-2xl font-bold mb-2">Fast Queue</h3>
+                <p class="text-gray-400">Optimized media processing</p>
+            </div>
+
+            <div>
+                <div class="text-4xl mb-4">🔒</div>
+                <h3 class="text-2xl font-bold mb-2">Secure</h3>
+                <p class="text-gray-400">Protected processing pipeline</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Footer -->
+<footer id="contact" class="border-t border-white/10 py-10 px-6">
+
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+
+        <div>
+            <h3 class="logo-font text-2xl text-red-500 font-bold tracking-widest">
+                MEDIAFORGE AI
+            </h3>
+            <p class="text-gray-500 mt-2">
+                Powered by BLACKFYR3 SYSTEMS
+            </p>
+        </div>
+
+        <div class="flex gap-6 text-gray-400 text-sm">
+            <a href="#" class="hover:text-red-400 transition">Privacy</a>
+            <a href="#" class="hover:text-red-400 transition">Terms</a>
+            <a href="#" class="hover:text-red-400 transition">Support</a>
+            <a href="#" class="hover:text-red-400 transition">GitHub</a>
+        </div>
+
+    </div>
+
 </footer>
 
 <script>
 
 function downloadVideo(){
 
-let url=document.getElementById("url").value;
+    let url=document.getElementById("url").value;
 
-if(url==""){
-alert("Paste a video link first");
-return;
-}
+    if(url==""){
+        alert("Paste a media link first");
+        return;
+    }
 
-window.open("https://blackfyre-api.onrender.com/download?url="+encodeURIComponent(url));
+    window.open(
+        "https://blackfyre-api.onrender.com/download?url="+
+        encodeURIComponent(url)
+    );
 
 }
 
@@ -94,3 +319,11 @@ window.open("https://blackfyre-api.onrender.com/download?url="+encodeURIComponen
 
 </body>
 </html>
+```
+
+Then:
+
+1. Save the file.
+2. Commit changes to GitHub.
+3. GitHub Pages will auto-update the site.
+4. Your Render backend should continue working normally.
